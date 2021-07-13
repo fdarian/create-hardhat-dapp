@@ -22,8 +22,8 @@
   ],
   "scripts": {
     "test": "yarn build && npm link",
-    "prebuild": "rimraf ./dist/",
-    "build": "ncc build ./src/index.ts -o ./dist/ --minify --no-cache --no-source-map-register && cpy templates dist --parents"
+    "build": "rimraf ./dist/ && ncc build ./src/index.ts -o ./dist/ --minify --no-cache --no-source-map-register && cpy templates dist --parents",
+    "prepublish": "yarn build"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.28.6",
