@@ -26,7 +26,7 @@ const config: HardhatUserConfig = {
     },
   },
   gasReporter: {
-    enabled: process.env.REPORT_GAS.toLowerCase() === 'true' ? true : false,
+    enabled: process.env.REPORT_GAS?.toLowerCase() === 'true' ? true : false,
     currency: 'USD',
     coinmarketcap: process.env.COINMARKETCAP_API,
   },
