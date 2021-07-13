@@ -1,7 +1,7 @@
 {
   "name": "create-hardhat-dapp",
   "description": "👷‍♂️ Create Hardhat Development Environment with a single command",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "license": "MIT",
   "author": "Farrel Darian <contact@farreldarian.com>",
   "main": "index.js",
@@ -16,28 +16,26 @@
   "publishConfig": {
     "@farreldarian:registry": "https://npm.pkg.github.com"
   },
-  "bin": {
-    "create-hardhat-dapp": "./dist/index.js"
-  },
+  "bin": "./dist/index.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "test": "yarn build && npm link",
-    "prebuild": "rimraf ./dist/",
-    "build": "ncc build ./src/index.ts -o ./dist/ --minify --no-cache --no-source-map-register && cpy templates dist --parents"
+    "test": "rimraf ./dist/ && yarn build && npm link",
+    "build": "rimraf ./dist/ && ncc build ./src/index.ts -o ./dist/ --minify --no-cache --no-source-map-register && cpy templates dist --parents",
+    "prepublish": "yarn build"
   },
   "devDependencies": {
-    "@types/cross-spawn": "^6.0.2",
-    "@types/node": "^16.0.0",
-    "@types/rimraf": "^3.0.0",
     "@vercel/ncc": "^0.28.6",
+    "@yarnpkg/pnpify": "^3.0.0-rc.10",
     "chalk": "^4.1.1",
     "commander": "^8.0.0",
     "cpy": "^8.1.2",
     "cpy-cli": "^3.1.1",
     "cross-spawn": "^7.0.3",
     "fs": "^0.0.1-security",
+    "hardhat": "^2.4.3",
+    "hardhat-gas-reporter": "^1.0.4",
     "os": "^0.1.1",
     "prettier": "^2.3.2",
     "prettier-plugin-solidity": "^1.0.0-beta.13",

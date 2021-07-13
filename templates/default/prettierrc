@@ -1,0 +1,14 @@
+{
+	"semi": false,
+	"singleQuote": true,
+	"overrides": [
+		{
+			"files": "*.sol",
+			"options": {
+				"tabWidth": 4,
+				"singleQuote": false,
+				"explicitTypes": "always"
+			}
+		}
+	]
+}

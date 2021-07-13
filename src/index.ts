@@ -4,28 +4,43 @@ import {
   checkDirectory,
   checkWriteable,
   copyTemplate,
+  createEnv,
+  createHardhatConfig,
   createPackageJson,
   installDependencies,
   promptFinish,
   tryGitInit,
+  tryPrettierWrite,
 } from './actions'
 import { Command } from 'commander'
 import packageJson from '../package.json'
 import chalk from 'chalk'
+import { parseNetworkProvider } from './helpers'
 
 let projectPath: string = '.'
 
-new Command()
+const program = new Command()
   .version(packageJson.version)
   .arguments('<project-directory>')
   .usage(`${chalk.green('<project-directory>')}`)
   .action((projectPath_: string) => {
     projectPath = projectPath_
   })
-  .allowUnknownOption()
+  .option(
+    '-p, --provider [name]',
+    `
+
+  Prepare network configurations for connecting to
+  known external network using your favorite JSON-RPC provider
+
+  Fill with 'alchemy' or 'infura' (case insensitive)
+`
+  )
   .parse(process.argv)
 
 async function createApp() {
+  const { provider } = program.opts()
+
   const root = path.resolve(projectPath)
   const dappName = path.basename(root)
 
@@ -37,7 +52,13 @@ async function createApp() {
   createPackageJson(root, dappName)
   await installDependencies(root)
   await copyTemplate(root)
+  createHardhatConfig(root, {
+    provider: parseNetworkProvider(provider),
+  })
 
+  createEnv(root, provider)
+
+  tryPrettierWrite(root)
   tryGitInit(root)
 
   promptFinish(root, dappName)

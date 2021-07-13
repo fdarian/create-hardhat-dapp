@@ -2,11 +2,13 @@
   "compilerOptions": {
     "target": "es2019",
     "moduleResolution": "node",
+    "lib": ["ESNext"],
     "strict": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": false,
-    "outDir": "dist"
+    "outDir": "dist",
+    "noImplicitAny": false
   },
   "exclude": ["templates", "dist"]
 }

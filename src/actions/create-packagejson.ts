@@ -11,6 +11,7 @@ function createPackageJson(root: string, dappName: string) {
       chain: 'hardhat node',
       console: 'hardhat console',
       test: 'hardhat test',
+      verify: 'hardhat verify',
     },
   }
 
