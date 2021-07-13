@@ -1,5 +1,6 @@
 import { HardhatUserConfig, task } from 'hardhat/config'
 import { EthGasReporterConfig } from 'hardhat-gas-reporter/src/types'
+import removeTemplateQuotes from './remove-template-quotes'
 
 declare module 'hardhat/types/config' {
   interface HardhatUserConfig {
@@ -26,11 +27,13 @@ export interface HardhatConfigOptions {
 function generateHardhatConfig(opts?: HardhatConfigOptions) {
   const reportGas = opts?.reportGas ?? true
   const gasReporterConfig = reportGas && {
+    // @ts-ignore
     gasReporter: {
-      enabled: process.env.REPORT_GAS?.toLowerCase() === 'true' ? true : false,
+      enabled:
+        "|<-r|process.env.REPORT_GAS?.toLowerCase() === 'true' ? true : false|r->|",
       currency: 'USD',
-      coinmarketcap: process.env.COINMARKETCAP_API,
-    },
+      coinmarketcap: '|<-r|process.env.COINMARKETCAP_API|r->|',
+    } as EthGasReporterConfig,
   }
 
   const config: HardhatUserConfig = {
@@ -56,7 +59,9 @@ require('dotenv').config()
 
 ${defaultTask}
 
-const config: HardhatUserConfig = ${JSON.stringify(config)}
+const config: HardhatUserConfig = ${removeTemplateQuotes(
+    JSON.stringify(config)
+  )}
 
 export default config
 `

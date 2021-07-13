@@ -29,6 +29,10 @@ const devDependencies = [
   'ts-node',
   '@types/node',
 
+  // Prettier
+  'prettier',
+  'prettier-plugin-solidity',
+
   // Utils
   'dotenv',
 ]

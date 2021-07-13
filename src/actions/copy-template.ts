@@ -8,6 +8,7 @@ async function copyTemplate(root: string) {
     rename: (name) => {
       switch (name) {
         case 'gitignore':
+        case 'prettierrc':
         case 'env.example': {
           return '.'.concat(name)
         }

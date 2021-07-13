@@ -9,6 +9,7 @@ import {
   installDependencies,
   promptFinish,
   tryGitInit,
+  tryPrettierWrite,
 } from './actions'
 import { Command } from 'commander'
 import packageJson from '../package.json'
@@ -40,6 +41,7 @@ async function createApp() {
   await copyTemplate(root)
   createHardhatConfig(root)
 
+  tryPrettierWrite(root)
   tryGitInit(root)
 
   promptFinish(root, dappName)
