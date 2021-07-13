@@ -1,12 +1,6 @@
 # Create Hardhat DApp
 
-The fastest way to initialize a new [Hardhat](https://hardhat.org) development environment.
-
-```bash
-npx create-hardhat-dapp
-```
-
-To create a new project in a specific folder, you can send a name as an argument.
+The fastest way to initialize a new [Hardhat](https://hardhat.org) development environment. Start by running the command below and replace `defi-app` with the name of your project.
 
 ```bash
 npx create-hardhat-dapp defi-app
