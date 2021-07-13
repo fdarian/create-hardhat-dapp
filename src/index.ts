@@ -4,6 +4,7 @@ import {
   checkDirectory,
   checkWriteable,
   copyTemplate,
+  createHardhatConfig,
   createPackageJson,
   installDependencies,
   promptFinish,
@@ -37,6 +38,7 @@ async function createApp() {
   createPackageJson(root, dappName)
   await installDependencies(root)
   await copyTemplate(root)
+  createHardhatConfig(root)
 
   tryGitInit(root)
 

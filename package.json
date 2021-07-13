@@ -16,9 +16,7 @@
   "publishConfig": {
     "@farreldarian:registry": "https://npm.pkg.github.com"
   },
-  "bin": {
-    "create-hardhat-dapp": "./dist/index.js"
-  },
+  "bin": "./dist/index.js",
   "files": [
     "dist"
   ],
@@ -38,6 +36,8 @@
     "cpy-cli": "^3.1.1",
     "cross-spawn": "^7.0.3",
     "fs": "^0.0.1-security",
+    "hardhat": "^2.4.3",
+    "hardhat-gas-reporter": "^1.0.4",
     "os": "^0.1.1",
     "prettier": "^2.3.2",
     "prettier-plugin-solidity": "^1.0.0-beta.13",
