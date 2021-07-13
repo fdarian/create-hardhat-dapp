@@ -22,9 +22,17 @@ task('accounts', 'Prints the list of accounts', async (args, hre) => {
 
 export interface HardhatConfigOptions {
   reportGas?: boolean
+  etherscan?: boolean
 }
 
 function generateHardhatConfig(opts?: HardhatConfigOptions) {
+  const etherscan = opts?.etherscan ?? true //
+  const etherscanConfig = etherscan && {
+    etherscan: {
+      apiKey: '|<-r|process.env.ETHERSCAN_API|r->|',
+    },
+  }
+
   const reportGas = opts?.reportGas ?? true
   const gasReporterConfig = reportGas && {
     // @ts-ignore
@@ -47,11 +55,13 @@ function generateHardhatConfig(opts?: HardhatConfigOptions) {
       },
     },
     ...gasReporterConfig,
+    ...etherscanConfig,
   }
 
   return `
 import '@nomiclabs/hardhat-waffle'
 import '@typechain/hardhat'
+${etherscan && "import '@nomiclabs/hardhat-etherscan'"}
 ${reportGas && "import 'hardhat-gas-reporter'"}
 import { HardhatUserConfig, task } from 'hardhat/config'
 
