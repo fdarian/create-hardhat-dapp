@@ -5,9 +5,6 @@ import { HardhatUserConfig, task } from 'hardhat/config'
 
 require('dotenv').config()
 
-const REPORT_GAS = process.env.REPORT_GAS || ''
-const COINMARKETCAP_API = process.env.REPORT_GAS || ''
-
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
 task('accounts', 'Prints the list of accounts', async (args, hre) => {
@@ -28,13 +25,10 @@ const config: HardhatUserConfig = {
       },
     },
   },
-  paths: {
-    tests: './tests',
-  },
   gasReporter: {
-    enabled: REPORT_GAS.toLowerCase() === 'true' ? true : false,
+    enabled: process.env.REPORT_GAS?.toLowerCase() === 'true' ? true : false,
     currency: 'USD',
-    coinmarketcap: COINMARKETCAP_API,
+    coinmarketcap: process.env.COINMARKETCAP_API,
   },
 }
 
