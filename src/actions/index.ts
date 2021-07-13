@@ -1,6 +1,7 @@
 export { default as checkDirectory } from './check-directory'
 export { default as checkWriteable } from './check-writeable'
 export { default as copyTemplate } from './copy-template'
+export { default as createEnv } from './create-env'
 export { default as createHardhatConfig } from './create-hardhat-config'
 export { default as createPackageJson } from './create-packagejson'
 export { default as installDependencies } from './install-dependencies'

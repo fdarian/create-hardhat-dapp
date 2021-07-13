@@ -21,7 +21,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "yarn build && npm link",
+    "test": "rimraf ./dist/ && yarn build && npm link",
     "build": "rimraf ./dist/ && ncc build ./src/index.ts -o ./dist/ --minify --no-cache --no-source-map-register && cpy templates dist --parents",
     "prepublish": "yarn build"
   },

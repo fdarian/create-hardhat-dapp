@@ -1,6 +1,7 @@
-import { HardhatUserConfig, task } from 'hardhat/config'
+import { HardhatUserConfig } from 'hardhat/config'
 import { EthGasReporterConfig } from 'hardhat-gas-reporter/src/types'
 import removeTemplateQuotes from './remove-template-quotes'
+import getNetworkConfig from './get-network-config'
 
 declare module 'hardhat/types/config' {
   interface HardhatUserConfig {
@@ -8,21 +9,10 @@ declare module 'hardhat/types/config' {
   }
 }
 
-const defaultTask = `
-// This is a sample Hardhat task. To learn how to create your own go to
-// https://hardhat.org/guides/create-task.html
-task('accounts', 'Prints the list of accounts', async (args, hre) => {
-  const accounts = await hre.ethers.getSigners()
-
-  for (const account of accounts) {
-    console.log(account.address)
-  }
-})
-`
-
 export interface HardhatConfigOptions {
   reportGas?: boolean
   etherscan?: boolean
+  provider?: undefined | 'alchemy' | 'infura'
 }
 
 function generateHardhatConfig(opts?: HardhatConfigOptions) {
@@ -56,18 +46,35 @@ function generateHardhatConfig(opts?: HardhatConfigOptions) {
     },
     ...gasReporterConfig,
     ...etherscanConfig,
+    ...(opts?.provider && getNetworkConfig(opts?.provider)),
   }
 
   return `
 import '@nomiclabs/hardhat-waffle'
 import '@typechain/hardhat'
-${etherscan && "import '@nomiclabs/hardhat-etherscan'"}
-${reportGas && "import 'hardhat-gas-reporter'"}
+${etherscan ? "import '@nomiclabs/hardhat-etherscan'" : ''}
+${reportGas ? "import 'hardhat-gas-reporter'" : ''}
 import { HardhatUserConfig, task } from 'hardhat/config'
 
 require('dotenv').config()
+${
+  opts?.provider
+    ? `
+const PRIVATE_KEY = process.env.PRIVATE_KEY || ''
+const PROVIDER_API = process.env.PROVIDER_API || ''
+`
+    : ''
+}
 
-${defaultTask}
+// This is a sample Hardhat task. To learn how to create your own go to
+// https://hardhat.org/guides/create-task.html
+task('accounts', 'Prints the list of accounts', async (args, hre) => {
+  const accounts = await hre.ethers.getSigners()
+
+  for (const account of accounts) {
+    console.log(account.address)
+  }
+})
 
 const config: HardhatUserConfig = ${removeTemplateQuotes(
     JSON.stringify(config)
