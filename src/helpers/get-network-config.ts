@@ -14,15 +14,6 @@ const infuraBaseUrl = {
 
 function getNetworkConfig(provider: 'alchemy' | 'infura'): HardhatUserConfig {
   const alchemy = provider === 'alchemy'
-  console.log(`
-  
-  
-  
- provider |${provider}| 
- alchemy |${alchemy}| 
-  
-  
-  `)
 
   return {
     networks: {
