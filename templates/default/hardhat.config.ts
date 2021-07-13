@@ -28,9 +28,6 @@ const config: HardhatUserConfig = {
       },
     },
   },
-  paths: {
-    tests: './tests',
-  },
   gasReporter: {
     enabled: REPORT_GAS.toLowerCase() === 'true' ? true : false,
     currency: 'USD',
