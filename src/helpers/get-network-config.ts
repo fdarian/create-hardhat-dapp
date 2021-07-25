@@ -1,15 +1,15 @@
 import { HardhatUserConfig } from 'hardhat/types'
 
 const alchemyBaseUrl = {
-  mainnet: 'https://eth-mainnet.alchemyapi.io/v2',
-  goerli: 'https://eth-goerli.alchemyapi.io/v2',
-  rinkeby: 'https://eth-rinkeby.alchemyapi.io/v2',
+  mainnet: 'https://eth-mainnet.alchemyapi.io/v2/',
+  goerli: 'https://eth-goerli.alchemyapi.io/v2/',
+  rinkeby: 'https://eth-rinkeby.alchemyapi.io/v2/',
 }
 
 const infuraBaseUrl = {
-  mainnet: 'https://mainnet.infura.io/v3',
-  goerli: 'https://goerli.infura.io/v3',
-  rinkeby: 'https://rinkeby.infura.io/v3',
+  mainnet: 'https://mainnet.infura.io/v3/',
+  goerli: 'https://goerli.infura.io/v3/',
+  rinkeby: 'https://rinkeby.infura.io/v3/',
 }
 
 function getNetworkConfig(provider: 'alchemy' | 'infura'): HardhatUserConfig {
