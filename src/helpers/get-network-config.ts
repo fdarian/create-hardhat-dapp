@@ -19,17 +19,17 @@ function getNetworkConfig(provider: 'alchemy' | 'infura'): HardhatUserConfig {
   return {
     networks: {
       mainnet: {
-        url: `${urls.mainnet}/\${PROVIDER_API}`,
+        url: `<#\`${urls.mainnet}/\${PROVIDER_API}\`#>`,
         // @ts-ignore
         accounts: '<#[PRIVATE_KEY]#>',
       },
       goerli: {
-        url: `${urls.goerli}/\${PROVIDER_API}`,
+        url: `<#\`${urls.goerli}/\${PROVIDER_API}\`#>`,
         // @ts-ignore
         accounts: '<#[PRIVATE_KEY]#>',
       },
       rinkeby: {
-        url: `${urls.rinkeby}/\${PROVIDER_API}`,
+        url: `<#\`${urls.rinkeby}/\${PROVIDER_API}\`#>`,
         // @ts-ignore
         accounts: '<#[PRIVATE_KEY]#>',
       },
