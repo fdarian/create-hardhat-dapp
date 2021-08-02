@@ -19,7 +19,7 @@ function generateHardhatConfig(opts?: HardhatConfigOptions) {
   const etherscan = opts?.etherscan ?? true //
   const etherscanConfig = etherscan && {
     etherscan: {
-      apiKey: '|<-r|process.env.ETHERSCAN_API|r->|',
+      apiKey: '<#process.env.ETHERSCAN_API#>',
     },
   }
 
@@ -28,9 +28,9 @@ function generateHardhatConfig(opts?: HardhatConfigOptions) {
     // @ts-ignore
     gasReporter: {
       enabled:
-        "|<-r|process.env.REPORT_GAS?.toLowerCase() === 'true' ? true : false|r->|",
+        "<#process.env.REPORT_GAS?.toLowerCase() === 'true' ? true : false#>",
       currency: 'USD',
-      coinmarketcap: '|<-r|process.env.COINMARKETCAP_API|r->|',
+      coinmarketcap: '<#process.env.COINMARKETCAP_API#>',
     } as EthGasReporterConfig,
   }
 

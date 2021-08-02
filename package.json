@@ -1,7 +1,7 @@
 {
   "name": "create-hardhat-dapp",
   "description": "👷‍♂️ Create Hardhat Development Environment with a single command",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "license": "MIT",
   "author": "Farrel Darian <contact@farreldarian.com>",
   "main": "index.js",
