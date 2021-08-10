@@ -36,10 +36,11 @@ const program = new Command()
   Fill with 'alchemy' or 'infura' (case insensitive)
 `
   )
+  .option('--no-install', 'Prevent installing dependencies at beginning')
   .parse(process.argv)
 
 async function createApp() {
-  const { provider } = program.opts()
+  const { provider, install } = program.opts()
 
   const root = path.resolve(projectPath)
   const dappName = path.basename(root)
@@ -50,7 +51,11 @@ async function createApp() {
   process.chdir(root)
 
   createPackageJson(root, dappName)
-  await installDependencies(root)
+
+  if (install) {
+    await installDependencies(root)
+  }
+
   await copyTemplate(root)
   createHardhatConfig(root, {
     provider: parseNetworkProvider(provider),
