@@ -28,6 +28,8 @@ yarn create hardhat-dapp defi-app
 
 - **-p, --provider [{ alchemy | infura }]** — Prepare [network configurations](https://hardhat.org/config/#networks-configuration) for connecting to [networks](#network-configurations-) using your favorite JSON-RPC provider. Leave it blank for `alchemy`
 
+- **--no-install** — Prevent installing dependencies at beginning
+
 ## What Comes Out of the Box 📦
 
 > Anything marked with `🏷` is optional
