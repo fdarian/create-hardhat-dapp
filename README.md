@@ -5,7 +5,7 @@ The fastest way to initialize a new [Hardhat](https://hardhat.org) development e
 ## Features ⚡️
 
 - **Zero Configuration** — No need to install and configure hardhat plugins manually
-- **Typescript by Default** — Provides static typing not just for JavaScript but also Smart Contract ABI
+- **Typescript by Default** — Provides static typing for both JavaScript and Smart Contract ABI
 - **Extensible** — Still a Hardhat environment that can be extended with many awesome plugins
 
 ## Getting Started 📚
@@ -47,7 +47,7 @@ yarn create hardhat-dapp defi-app
 
 ### Hardhat Plugins
 
-> **hardhat-gas-reporter** **optionally** requires an API Key for [coinamrketcap](https://coinmarketcap.com) to fetch price data
+> **hardhat-gas-reporter** **optionally** requires an API Key for [coinmarketcap](https://coinmarketcap.com) to fetch price data
 >
 > **hardhat-etherscan** requires an API Key for [etherscan](https://etherscan.io) to submit smart contract
 
@@ -65,6 +65,7 @@ yarn create hardhat-dapp defi-app
 ### Network Configurations 🏷
 
 > Ethereum networks require an API Key for JSON-RPC Provider either [Alchemy](https://www.alchemy.com) or [Infura](https://infura.io)
+>
 > You can generate these configurations using the `-p` or `--provider` command, see [options](#options-)
 
 - **Ethereum** — Mainnet, Görli and Rinkeby
