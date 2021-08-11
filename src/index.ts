@@ -51,12 +51,12 @@ async function createApp() {
   process.chdir(root)
 
   createPackageJson(root, dappName)
+  await copyTemplate(root)
 
   if (install) {
     await installDependencies(root)
   }
 
-  await copyTemplate(root)
   createHardhatConfig(root, {
     provider,
   })
