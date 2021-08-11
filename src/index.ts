@@ -16,6 +16,7 @@ import { Command } from 'commander'
 import packageJson from '../package.json'
 import chalk from 'chalk'
 import { parseNetworkProvider } from './helpers'
+import parseArgs from './actions/parse-args'
 
 let projectPath: string = '.'
 
@@ -40,7 +41,7 @@ const program = new Command()
   .parse(process.argv)
 
 async function createApp() {
-  const { provider, install } = program.opts()
+  const { provider, install } = parseArgs(program.opts())
 
   const root = path.resolve(projectPath)
   const dappName = path.basename(root)
