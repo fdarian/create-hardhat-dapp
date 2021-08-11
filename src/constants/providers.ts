@@ -3,7 +3,7 @@ import { ChainId } from './chains'
 export const SUPPORTED_PROVIDERS = ['alchemy', 'infura']
 export type Provider = typeof SUPPORTED_PROVIDERS[number]
 
-export const PROVIDER_URL = {
+export const PROVIDER_URLS = {
   alchemy: {
     [ChainId.Mainnet]: 'https://eth-mainnet.alchemyapi.io/v2',
     [ChainId.Goerli]: 'https://eth-goerli.alchemyapi.io/v2',

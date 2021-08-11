@@ -1,4 +1,4 @@
-import { Provider, SUPPORTED_PROVIDERS } from '../../constants/provider'
+import { Provider, SUPPORTED_PROVIDERS } from '../../constants/providers'
 
 function throwError(inProvider: any) {
   const supportedProviders = SUPPORTED_PROVIDERS.join("', '")

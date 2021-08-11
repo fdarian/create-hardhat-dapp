@@ -2,7 +2,7 @@ import { HardhatUserConfig } from 'hardhat/config'
 import { EthGasReporterConfig } from 'hardhat-gas-reporter/src/types'
 import removeTemplateQuotes from './remove-template-quotes'
 import getNetworkConfig from './get-network-config'
-import { Provider } from '../constants/provider'
+import { Provider } from '../constants/providers'
 
 declare module 'hardhat/types/config' {
   interface HardhatUserConfig {
