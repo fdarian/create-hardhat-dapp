@@ -1,6 +1,6 @@
 import { HardhatUserConfig } from 'hardhat/types'
-import { CHAIN_NAMES } from '../constants/chains'
-import { Provider, PROVIDER_URLS } from '../constants/providers'
+import { CHAIN_NAMES } from '../../constants/chains'
+import { Provider, PROVIDER_URLS } from '../../constants/providers'
 
 function getNetworkConfig(provider: Provider): HardhatUserConfig {
   const providerUrls = PROVIDER_URLS[provider]

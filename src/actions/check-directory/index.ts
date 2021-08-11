@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { isFolderEmpty } from '../helpers'
+import isFolderEmpty from './is-folder-empty'
 
 async function checkDirectory(root: string, dappName: string) {
   await fs.promises.mkdir(root, { recursive: true })
