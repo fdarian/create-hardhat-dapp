@@ -1,4 +1,5 @@
 import { HardhatUserConfig } from 'hardhat/types'
+import { Provider } from '../constants/provider'
 
 const alchemyBaseUrl = {
   mainnet: 'https://eth-mainnet.alchemyapi.io/v2',
@@ -12,7 +13,7 @@ const infuraBaseUrl = {
   rinkeby: 'https://rinkeby.infura.io/v3',
 }
 
-function getNetworkConfig(provider: 'alchemy' | 'infura'): HardhatUserConfig {
+function getNetworkConfig(provider: Provider): HardhatUserConfig {
   const alchemy = provider === 'alchemy'
   const urls = alchemy ? alchemyBaseUrl : infuraBaseUrl
 

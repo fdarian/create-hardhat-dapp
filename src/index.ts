@@ -15,7 +15,6 @@ import {
 import { Command } from 'commander'
 import packageJson from '../package.json'
 import chalk from 'chalk'
-import { parseNetworkProvider } from './helpers'
 import parseArgs from './actions/parse-args'
 
 let projectPath: string = '.'
@@ -59,7 +58,7 @@ async function createApp() {
 
   await copyTemplate(root)
   createHardhatConfig(root, {
-    provider: parseNetworkProvider(provider),
+    provider,
   })
 
   createEnv(root, provider)

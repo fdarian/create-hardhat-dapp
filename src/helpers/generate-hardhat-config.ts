@@ -2,6 +2,7 @@ import { HardhatUserConfig } from 'hardhat/config'
 import { EthGasReporterConfig } from 'hardhat-gas-reporter/src/types'
 import removeTemplateQuotes from './remove-template-quotes'
 import getNetworkConfig from './get-network-config'
+import { Provider } from '../constants/provider'
 
 declare module 'hardhat/types/config' {
   interface HardhatUserConfig {
@@ -12,7 +13,7 @@ declare module 'hardhat/types/config' {
 export interface HardhatConfigOptions {
   reportGas?: boolean
   etherscan?: boolean
-  provider?: undefined | 'alchemy' | 'infura'
+  provider?: null | Provider
 }
 
 function generateHardhatConfig(opts?: HardhatConfigOptions) {
