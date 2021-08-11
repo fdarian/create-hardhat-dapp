@@ -22,4 +22,4 @@ export const PROVIDER_URL = {
     [ChainId.Polygon]: 'https://polygon-mainnet.infura.io/v3',
     [ChainId.Mumbai]: 'https://polygon-mumbai.infura.io/v3',
   },
-}
+} as const

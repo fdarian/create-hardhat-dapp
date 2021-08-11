@@ -20,4 +20,4 @@ export const CHAIN_NAMES = {
   [ChainId.xDai]: 'xDai',
   [ChainId.Polygon]: 'Polygon',
   [ChainId.Mumbai]: 'Mumbai',
-}
+} as const
