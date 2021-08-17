@@ -61,7 +61,7 @@ yarn create hardhat-dapp defi-app
 - **[Typescript](https://www.typescriptlang.org)** — Static Type version of JavaScript
 - **[Typechain](https://github.com/ethereum-ts/TypeChain)** — 🔌 TypeScript bindings for Ethereum smart contracts
 - **[Prettier](https://prettier.io)** — Automatic code formatter and comes with the [Solidity plugin](https://github.com/prettier-solidity/prettier-plugin-solidity)
-
+- **[Yarn Berry](https://yarnpkg.com/)** — Fast, reliable, and secure dependency management for JavaScript.
 ### Network Configurations 🏷
 
 > Ethereum networks require an API Key for JSON-RPC Provider either [Alchemy](https://www.alchemy.com) or [Infura](https://infura.io)
