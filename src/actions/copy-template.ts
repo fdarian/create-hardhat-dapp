@@ -1,5 +1,6 @@
 import cpy from 'cpy'
 import path from 'path'
+import fs from 'fs'
 
 async function copyTemplate(root: string) {
   await cpy('**', root, {
@@ -8,6 +9,7 @@ async function copyTemplate(root: string) {
     rename: (name) => {
       switch (name) {
         case 'gitignore':
+        case 'yarnrc.yml':
         case 'prettierrc': {
           return '.'.concat(name)
         }
@@ -17,6 +19,8 @@ async function copyTemplate(root: string) {
       }
     },
   })
+
+  fs.renameSync(`${root}/yarn`, `${root}/.yarn`)
 }
 
 export default copyTemplate

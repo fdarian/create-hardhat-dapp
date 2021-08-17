@@ -1,5 +1,5 @@
 import chalk from 'chalk'
-import { install } from '../helpers'
+import install from './install'
 
 const devDependencies = [
   'hardhat',

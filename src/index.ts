@@ -15,7 +15,7 @@ import {
 import { Command } from 'commander'
 import packageJson from '../package.json'
 import chalk from 'chalk'
-import { parseNetworkProvider } from './helpers'
+import parseArgs from './actions/parse-args'
 
 let projectPath: string = '.'
 
@@ -36,10 +36,11 @@ const program = new Command()
   Fill with 'alchemy' or 'infura' (case insensitive)
 `
   )
+  .option('--no-install', 'Prevent installing dependencies at beginning')
   .parse(process.argv)
 
 async function createApp() {
-  const { provider } = program.opts()
+  const { provider, install } = parseArgs(program.opts())
 
   const root = path.resolve(projectPath)
   const dappName = path.basename(root)
@@ -50,10 +51,14 @@ async function createApp() {
   process.chdir(root)
 
   createPackageJson(root, dappName)
-  await installDependencies(root)
   await copyTemplate(root)
+
+  if (install) {
+    await installDependencies(root)
+  }
+
   createHardhatConfig(root, {
-    provider: parseNetworkProvider(provider),
+    provider,
   })
 
   createEnv(root, provider)
