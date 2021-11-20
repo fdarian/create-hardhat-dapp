@@ -21,8 +21,9 @@
     "dist"
   ],
   "scripts": {
-    "test": "rimraf ./dist/ && yarn build && npm link",
-    "build": "rimraf ./dist/ && node esbuild.js && cpy templates dist --parents",
+    "clean": "rimraf ./dist/",
+    "test": "pnpm clean && pnpm build && npm link",
+    "build": "pnpm clean && node esbuild.js && cpy templates dist --parents",
     "prepublish": "yarn build"
   },
   "devDependencies": {
