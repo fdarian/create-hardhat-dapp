@@ -32,6 +32,7 @@
     "cpy": "^8.1.2",
     "cpy-cli": "^3.1.1",
     "cross-spawn": "^7.0.3",
+    "esbuild": "^0.13.14",
     "fs": "^0.0.1-security",
     "hardhat": "^2.4.3",
     "hardhat-gas-reporter": "^1.0.4",
