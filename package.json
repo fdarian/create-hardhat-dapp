@@ -24,7 +24,7 @@
     "clean": "rimraf ./dist/",
     "test": "pnpm clean && pnpm build && npm link",
     "build": "pnpm clean && node esbuild.js && cpy templates dist --parents",
-    "prepublish": "yarn build"
+    "prepublish": "pnpm build"
   },
   "devDependencies": {
     "chalk": "^4.1.1",
