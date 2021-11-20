@@ -27,7 +27,6 @@
     "prepublish": "yarn build"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.28.6",
     "chalk": "^4.1.1",
     "commander": "^8.0.0",
     "cpy": "^8.1.2",

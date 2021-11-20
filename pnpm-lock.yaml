@@ -1,7 +1,6 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@vercel/ncc': ^0.28.6
   chalk: ^4.1.1
   commander: ^8.0.0
   cpy: ^8.1.2
@@ -18,7 +17,6 @@ specifiers:
   typescript: ^4.3.5
 
 devDependencies:
-  '@vercel/ncc': 0.28.6
   chalk: 4.1.2
   commander: 8.2.0
   cpy: 8.1.2
@@ -465,11 +463,6 @@ packages:
     resolution: {integrity: sha512-Da66lEIFeIz9ltsdMZcpQvmrmmoqrfju8pm1BH8WbYjZSwUgCwXLb9C+9XYogwBITnbsSaMdVPb2ekf7TV+03w==}
     dependencies:
       '@types/node': 16.11.9
-    dev: true
-
-  /@vercel/ncc/0.28.6:
-    resolution: {integrity: sha512-t4BoSSuyK8BZaUE0gV18V6bkFs4st7baumtFGa50dv1tMu2GDBEBF8sUZaKBdKiL6DzJ2D2+XVCwYWWDcQOYdQ==}
-    hasBin: true
     dev: true
 
   /abort-controller/3.0.0:
